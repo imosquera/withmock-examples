@@ -1,9 +1,9 @@
-package foo
+package baz
 
 import (
 	"code.google.com/p/gomock/gomock"
-	baz "github.com/imosquera/withmock-examples/baz" //mock
 	. "launchpad.net/gocheck"
+	"path" //mock
 	"testing"
 )
 
@@ -20,13 +20,14 @@ func (s *HookSuite) SetupTest(c *C) {
 func (s *HookSuite) TearDownTest(c *C) {
 }
 
-func (s *HookSuite) BarTest(c *C) {
+func (s *HookSuite) BazTest(c *C) {
 	mockCtrl := gomock.NewController(c)
 	defer mockCtrl.Finish()
 
-	bazzer := baz.MOCK().NewBazzer()
-	bazzer.EXPECT().GetBaz(gomock.Any())
-	bar := Bar{}
-	bar.bazzer = bazzer
-	bar.GetBar()
+	path.MOCK().SetController(mockCtrl)
+	path.EXPECT().Join("basepath", "newpath/newfile.gz")
+
+	baz := Baz{}
+	baz.SplitPaths("basepath")
+
 }
