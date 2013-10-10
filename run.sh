@@ -54,6 +54,10 @@ interactive() {
     fi
 }
 
+tests() {
+    mocktest -gocov ./... | gocov report 
+}
+
 build () {
     if [ "$NON_INTERACTIVE" == "true" ] 
     then
@@ -97,8 +101,8 @@ shift $((OPTIND-1))
 PROGRAM=$1
 
 case "$1" in
-        genmocks)
-            generateMocks
+        tests)
+            tests 
             ;;
         *)
             build

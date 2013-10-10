@@ -2,7 +2,6 @@ package foo
 
 import (
 	"code.google.com/p/gomock/gomock"
-	ex "github.com/imosquera/withmock-examples"      //mock
 	baz "github.com/imosquera/withmock-examples/baz" //mock
 	. "launchpad.net/gocheck"
 	"testing"
@@ -31,5 +30,4 @@ func (s *HookSuite) BarTest(c *C) {
 	bar.bazzer = bazzer
 
 	bar.GetBar()
-	ex.MOCK().SetController(mockCtrl)
 }
