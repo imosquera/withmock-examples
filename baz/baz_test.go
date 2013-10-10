@@ -20,7 +20,7 @@ func (s *HookSuite) SetupTest(c *C) {
 func (s *HookSuite) TearDownTest(c *C) {
 }
 
-func (s *HookSuite) BazTest(c *C) {
+func (s *HookSuite) TestBaz(c *C) {
 	mockCtrl := gomock.NewController(c)
 	defer mockCtrl.Finish()
 

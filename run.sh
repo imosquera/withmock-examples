@@ -55,6 +55,7 @@ interactive() {
 }
 
 tests() {
+    set -x 
     mocktest -gocov ./... | gocov report 
 }
 

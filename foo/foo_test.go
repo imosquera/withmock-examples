@@ -20,10 +20,11 @@ func (s *HookSuite) SetupTest(c *C) {
 func (s *HookSuite) TearDownTest(c *C) {
 }
 
-func (s *HookSuite) BarTest(c *C) {
+func (s *HookSuite) TestBar(c *C) {
 	mockCtrl := gomock.NewController(c)
 	defer mockCtrl.Finish()
 
+	baz.MOCK().SetController(mockCtrl)
 	bazzer := baz.MOCK().NewBazzer()
 	bazzer.EXPECT().GetBaz(gomock.Any())
 	bar := Bar{}
