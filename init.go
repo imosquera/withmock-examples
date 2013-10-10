@@ -1,0 +1,5 @@
+package withmockexamples
+
+func init() {
+
+}
